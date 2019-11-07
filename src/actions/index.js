@@ -1,0 +1,1 @@
+export const upAge = () => ({type: 'UP_AGE'});
