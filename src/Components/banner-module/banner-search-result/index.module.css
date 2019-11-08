@@ -7,6 +7,18 @@
     background: #ffffff;
     padding-left: 20px;
     border-radius: 0 8px 0 8px;
+    overflow-y: hidden;
+    animation: showMenu .4s linear;
+    animation-fill-mode: forwards;
+}
+
+@keyframes showMenu {
+    from{
+        max-height: 0;
+    }
+    to{
+        max-height: 500px;
+    }
 }
 
 .neighborhood{

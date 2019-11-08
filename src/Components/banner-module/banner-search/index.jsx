@@ -6,10 +6,19 @@ import SearchResult from '../banner-search-result';
 import {searchResultRequest} from "../../../actions";
 
 const BannerSearch = ({callToServer, propsData}) => {
+    const input = React.createRef();
+
+    const searchSubmit = () => {
+        callToServer(input.current.value);
+        input.current.value = '';
+    }
 
     return (
         <div className={styles.banner_search}>
-            <input className={styles.banner_search_field} type='text' placeholder='New your, Ny'/>
+            <input ref={input} 
+                className={styles.banner_search_field} 
+                type='text' 
+                placeholder='New your, Ny...'/>
             {propsData.loading ?
                 <div className={styles.lds_ring}>
                     <div />
@@ -18,9 +27,9 @@ const BannerSearch = ({callToServer, propsData}) => {
                     <div />
                 </div>
                 :
-                <button onClick={callToServer} className={styles.search_submit}/>
+                <button onClick={searchSubmit} className={styles.search_submit}/>
             }
-            <SearchResult data={propsData.result}/>
+            {propsData.result.length !== 0 && <SearchResult data={propsData.result}/>}
         </div>
     )
 

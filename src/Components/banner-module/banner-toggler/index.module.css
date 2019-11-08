@@ -1,0 +1,70 @@
+.toggle_left_wrapper,.toggle_right_wrapper{
+  width: 343px;
+  background: #f8f9fc;
+  border-radius: 8px;
+  padding: 4px;
+  margin: 0 auto 12px auto;
+  display: flex;
+}
+
+.toggle_left_wrapper::before{
+  content: '';
+  width: 171px;
+  height: 39px;
+  border-radius: 6.9px;
+  box-shadow: 0 1px 6px 1px rgba(160, 161, 188, 0.25);
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  animation: toggleLeft .2s linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes toggleLeft{
+  from{
+    transform: translateX(164px);
+  }
+  to{
+    transform: translateX(0);
+  }
+}
+
+.toggle_right_wrapper::before{
+  content: '';
+  width: 171px;
+  height: 39px;
+  border-radius: 6.9px;
+  box-shadow: 0 1px 6px 1px rgba(160, 161, 188, 0.25);
+  position: absolute;
+  animation: toggleRight .2s linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes toggleRight{
+  from{
+    transform: translateX(0);
+  }
+  to{
+    transform: translateX(164px);
+  }
+}
+
+.toggle_button{
+  width: 171px;
+  display: flex;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #94a4ba;
+  background: none;
+  border: none;
+  justify-content: center;
+  align-self: center;
+  padding: 7.2px 0;
+  cursor: pointer;
+}
+
+.active_button{
+  line-height: 1.31;
+  color: #3e416d;
+}

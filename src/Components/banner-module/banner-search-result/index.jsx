@@ -1,31 +1,11 @@
 import * as React from 'react';
+import {connect} from 'react-redux'
 import styles from './index.module.css';
 
-const SearchResult = ({data}) => {
-
-    let location = [];
-    let neighborhood = [];
-
-    const renderContent = (data) => {
-        data.map((item) => {
-            switch(item.type) {
-                case 'neighborhood':
-                    neighborhood = [...neighborhood,item];
-                    break;
-                case 'borough':
-                    location = [...location,item];
-                    break;
-                default:
-                    break;
-            }
-        })
-    };
-
+const SearchResult = ({location,neighborhood}) => {
 
     return(
-
         <div className={styles.search_result}>
-            {renderContent(data)}
             <ul className={styles.zip_result}>
                 {location.length !== 0 &&
                 <div className={styles.neighborhood}>
@@ -50,4 +30,9 @@ const SearchResult = ({data}) => {
     )
 };
 
-export default SearchResult;
+const mapStateToProps = state => ({
+    location: state.location,
+    neighborhood: state.neighborhood
+})
+
+export default connect(mapStateToProps,null)(SearchResult);
