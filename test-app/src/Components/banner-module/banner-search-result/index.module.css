@@ -1,0 +1,54 @@
+.search_result{
+    width: 500px;
+    position: absolute;
+    left: 0;
+    top: 50px;
+    z-index: 2;
+    background: #ffffff;
+    padding-left: 20px;
+    border-radius: 0 8px 0 8px;
+}
+
+.neighborhood{
+    display: flex;
+    flex-direction: column;
+}
+
+.neighborhood_template{
+    color: #94a4ba;
+    display: inline-flex;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.neighborhood_template::before{
+    content: '';
+    width: 24px;
+    display: inline-flex;
+    height: 24px;
+    background: url('../../../images/neighborhood.svg') no-repeat center/cover;
+}
+
+.neighborhood_result{
+    color: #3e416d;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 33px;
+    padding-left: 6px;
+}
+
+.location_template{
+    color: #94a4ba;
+    display: inline-flex;
+    margin-bottom: 20px;
+    font-size: 16px;
+    padding-top: 5px;
+}
+
+.location_template::before{
+    content: '';
+    width: 24px;
+    display: inline-flex;
+    height: 24px;
+    background: url('../../../images/location.svg') no-repeat center/cover;
+}

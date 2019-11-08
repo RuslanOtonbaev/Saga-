@@ -1,0 +1,28 @@
+.content_item{
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content_item_image{
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    margin-bottom: 25px;
+}
+
+.content_item_title{
+    font-size: 20px;
+    color: #3e416d;
+    margin-bottom: 32px;
+    font-weight: normal;
+    text-align: center;
+}
+
+.content_item_descr{
+    color: #94a4ba;
+    font-size: 16px;
+    text-align: center;
+    font-weight: normal;
+}

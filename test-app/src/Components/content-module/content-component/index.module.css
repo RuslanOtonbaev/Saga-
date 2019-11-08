@@ -1,0 +1,20 @@
+.column_wrapper{
+    width: 100%;
+    background-color: #f8f9fc;
+    padding-top: 37px;
+    padding-bottom: 64px;
+}
+
+.column_title{
+    font-size: 24px;
+    color: #3e416d;
+    text-align: center;
+    margin-bottom: 33px;
+    font-weight: 500;
+}
+
+.content_wrapper{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}

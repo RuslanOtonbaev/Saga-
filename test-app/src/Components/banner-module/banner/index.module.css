@@ -1,0 +1,34 @@
+.banner{
+    width: 100%;
+    background: url(../../../images/banner_background.jpg) no-repeat center/cover;
+    padding: 32px 0 27px 0;
+    border-radius: 10px;
+}
+
+.title{
+    text-align: center;
+    font-size: 44px;
+    font-family: 'Roboto';
+    font-weight: 900;
+    color: #fff;
+    letter-spacing: .5px;
+    width: 761px;
+    margin: 0 auto 44px auto;
+}
+
+.banner_footer_content{
+    padding-top: 109px;
+    padding-left: 20px;
+}
+
+.banner_footer_content_title{
+    font-size: 20px;
+    margin-bottom: 4px;
+    color: #ffffff;
+}
+
+.banner_footer_content_desc{
+    font-size: 16px;
+    line-height: 1.5;
+    color: #ffffff;
+}

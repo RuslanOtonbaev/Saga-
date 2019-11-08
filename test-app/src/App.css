@@ -1,0 +1,21 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  position: relative;
+  font-family: sans-serif Roboto;
+}
+
+.container{
+  width: 100%;
+  max-width: 1121px;
+  margin: 0 auto;
+}
+
+.wrapper{
+  padding-top: 50px;
+}
+
+li{
+  list-style: none;
+}

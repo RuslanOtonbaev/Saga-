@@ -1,0 +1,29 @@
+.toggle_wrapper{
+    width: 343px;
+    margin: 64px auto 25px auto;
+    background-color: #f8f9fc;
+    border-radius: 8px;
+    display: flex;
+    padding: 4px;
+}
+
+.toggle_button{
+    width: 171px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #94a4ba;
+    border: none;
+    cursor: pointer;
+}
+
+.toggle_button_active{
+    line-height: 1.31;
+    color: #3e416d;
+    border-radius: 6.9px;
+    box-shadow: 0 1px 3px 1px rgba(160, 161, 188, 0.15);
+    background-color: #ffffff;
+}
