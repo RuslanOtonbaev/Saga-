@@ -65,3 +65,9 @@
     height: 24px;
     background: url('../../../images/location.svg') no-repeat center/cover;
 }
+
+@media screen and (max-width: 660px){
+    .search_result{
+        width: 100%;
+    }
+}

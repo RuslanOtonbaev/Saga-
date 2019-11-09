@@ -20,3 +20,10 @@
         height: 300px;
     }
 }
+
+@media screen and (max-width: 660px){
+    .empty_search{
+        width: 100%;
+        top: 46px;
+    }
+}
