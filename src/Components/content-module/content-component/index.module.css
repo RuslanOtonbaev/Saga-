@@ -18,3 +18,10 @@
     justify-content: space-between;
     flex-wrap: nowrap;
 }
+
+@media screen and (max-width: 969px){
+    .content_wrapper{
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }

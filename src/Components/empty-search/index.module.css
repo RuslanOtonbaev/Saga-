@@ -1,0 +1,22 @@
+.empty_search{
+    position: absolute;
+    left: 0;
+    top: 42px;
+    width: 300px;
+    z-index: 2;
+    background: #ffffff;
+    border-radius: 10px;
+    background: url('../../images/empty.png') no-repeat center/cover;
+    overflow-y: hidden;
+    animation: showMenu .4s linear;
+    animation-fill-mode: forwards;
+}
+
+@keyframes showMenu {
+    from{
+        height: 0;
+    }
+    to{
+        height: 300px;
+    }
+}

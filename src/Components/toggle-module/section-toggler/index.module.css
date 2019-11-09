@@ -27,3 +27,13 @@
     box-shadow: 0 1px 3px 1px rgba(160, 161, 188, 0.15);
     background-color: #ffffff;
 }
+
+@media screen and (max-width: 360px){
+    .toggle_wrapper{
+        width: 90%;
+    }
+
+    .toggle_button{
+        width: 150px;
+    }
+}

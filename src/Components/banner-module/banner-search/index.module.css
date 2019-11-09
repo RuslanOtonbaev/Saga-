@@ -77,3 +77,30 @@
         transform: rotate(360deg);
     }
 }
+
+.empty_field_error{
+    position: absolute;
+    top: 40px;
+    left: 0;
+    background: #fff;
+    border-radius: 10px;
+}
+
+.empty_field_error p{
+    font-size: 16px;
+    color: red;
+    padding: 15px;
+}
+
+@media screen and (max-width: 969px){
+    .banner_search{
+        width: 629px;
+    }
+}
+
+@media screen and (max-width: 660px){
+    .banner_search{
+        width: 100%;
+        padding: 0 20px;
+    }
+}

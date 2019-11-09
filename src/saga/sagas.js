@@ -30,12 +30,12 @@ function* getFetchSearch(action){
     }
 }
 
-function* responseFetchSearch() {
+function* responseFetchSearch(){
     yield takeLatest('FETCH_SEARCH_REQUEST', getFetchSearch)
 }
 
 export default function* rootSaga(){
     yield all([
-        responseFetchSearch()
+        responseFetchSearch(),
     ])
 }

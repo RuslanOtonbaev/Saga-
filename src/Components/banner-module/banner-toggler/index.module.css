@@ -68,3 +68,39 @@
   line-height: 1.31;
   color: #3e416d;
 }
+
+@media screen and (max-width: 380px){
+  .toggle_left_wrapper,.toggle_right_wrapper{
+    width: 320px;
+  }
+}
+
+@media screen and (max-width: 320px){
+  .toggle_left_wrapper,.toggle_right_wrapper{
+    width: 90%;
+  }
+  .toggle_button{
+    width: 150px;
+  }
+  .toggle_right_wrapper::before,.toggle_left_wrapper::before{
+    width: 150px;
+  }
+
+  @keyframes toggleLeft{
+    from{
+      transform: translateX(140px);
+    }
+    to{
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes toggleRight{
+    from{
+      transform: translateX(0);
+    }
+    to{
+      transform: translateX(140px);
+    }
+  }
+}

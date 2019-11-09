@@ -1,13 +1,18 @@
+//import {combineReducers} from 'redux';
+
 const initialStore = {
-    result: [],
+    result: null,
     loading: false,
     bannerToggler: 'buy',
+    contentToggler: 'agents',
     neighborhood: [],
     location: [],
-    error: []
+    error: [],
+    userSelected: '',
 };
 
-const reducers = (state = initialStore, action) => {
+const fetchToServer = (state = initialStore, action) => {
+
     switch(action.type){
         case 'FETCH_SEARCH_REQUEST':
             return{
@@ -40,10 +45,32 @@ const reducers = (state = initialStore, action) => {
             return{
                 ...state,
                 bannerToggler: action.payload
-            }    
+            }
+        case 'TOGGLE_CONTENT_PANEL':
+            return{
+                ...state,
+                contentToggler: action.payload
+            }
+        case 'CLEAR_DATA_SERVER':
+            return{
+                ...state,
+                result: null,
+                neighborhood: [],
+                location: []
+            }
+        case 'USER_SEARCH_VALUE':
+            return{
+                ...state,
+                userSelected: action.payload
+            }            
         default:
             return state;
     }
 };
 
-export default reducers;
+
+// const rootReducer = combineReducers({
+//     fetchToServer
+// })
+
+export default fetchToServer;

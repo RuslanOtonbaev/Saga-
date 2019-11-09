@@ -26,3 +26,28 @@
     text-align: center;
     font-weight: normal;
 }
+
+@media screen and (max-width: 969px){
+    .content_item{
+      width: 48%;
+      margin-bottom: 40px;
+    }
+}
+
+@media screen and (max-width: 769px){
+    .content_item{
+      width: 100%;
+      margin-bottom: 50px;
+    }
+    .content_item_descr{
+        width: 469px;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 480px){
+    .content_item_descr,.content_item_title{
+        width: 100%;
+        padding: 0 20px;
+    }
+}
