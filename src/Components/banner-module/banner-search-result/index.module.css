@@ -5,7 +5,6 @@
     top: 50px;
     z-index: 2;
     background: #ffffff;
-    padding-left: 20px;
     border-radius: 0 8px 0 8px;
     overflow-y: hidden;
     animation: showMenu .4s linear;
@@ -31,6 +30,7 @@
     display: inline-flex;
     margin-bottom: 20px;
     font-size: 16px;
+    padding-left: 20px;
 }
 
 .neighborhood_template::before{
@@ -45,9 +45,12 @@
     color: #3e416d;
     font-size: 16px;
     line-height: 1.5;
-    margin-bottom: 33px;
-    padding-left: 6px;
+    padding: 16px 0 16px 26px;
     cursor: pointer;
+}
+
+.neighborhood_result:hover{
+    background: #f8f9fc;
 }
 
 .location_template{
@@ -56,6 +59,7 @@
     margin-bottom: 20px;
     font-size: 16px;
     padding-top: 5px;
+    padding-left: 20px;
 }
 
 .location_template::before{
