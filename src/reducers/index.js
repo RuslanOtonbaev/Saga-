@@ -30,12 +30,12 @@ const fetchToServer = (state = initialStore, action) => {
         case 'FETCH_NEIGHBORHOOD_ITEMS':
             return{
                 ...state,
-                neighborhood: mapper(action.payload,'neighborhood')
+                neighborhood: mapper(state.result,'neighborhood')
             }
         case 'FETCH_LOCATION_ITEMS':
             return{
                 ...state,
-                location: mapper(action.payload,'location')
+                location: mapper(state.result,'location')
             }
         case 'FETCH_ERROR_MESSAGE':
             return{

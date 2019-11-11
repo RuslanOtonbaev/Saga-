@@ -7,9 +7,10 @@ function* getFetchSearch(action){
 
         yield put({type: 'FETCH_SEARCH_RECEIVED', payload: responseBody});
 
-        yield put({type: 'FETCH_NEIGHBORHOOD_ITEMS', payload: responseBody});
-
-        yield put({type: 'FETCH_LOCATION_ITEMS', payload: responseBody});
+        yield all([
+            put({type: 'FETCH_NEIGHBORHOOD_ITEMS'}),
+            put({type: 'FETCH_LOCATION_ITEMS'})
+        ])
 
     }catch(error){
         yield put({type: 'FETCH_ERROR_MESSAGE', payload: error});
