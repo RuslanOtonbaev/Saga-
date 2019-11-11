@@ -1,12 +1,4 @@
 export const mapper = (data,type) => {
-    if(data){
-        return data.filter(item => {
-            if(item.type === type){
-                return item;
-            }
-        })
-    }
-
-    return null;
+    return data.filter(item => (item.type === type))
 }
 
