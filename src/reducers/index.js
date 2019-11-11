@@ -1,4 +1,5 @@
 //import {combineReducers} from 'redux';
+import {mapper} from '../helpers/mapper';
 
 const initialStore = {
     result: null,
@@ -29,12 +30,12 @@ const fetchToServer = (state = initialStore, action) => {
         case 'FETCH_NEIGHBORHOOD_ITEMS':
             return{
                 ...state,
-                neighborhood: action.payload
+                neighborhood: mapper(action.payload,'neighborhood')
             }
         case 'FETCH_LOCATION_ITEMS':
             return{
                 ...state,
-                location: action.payload
+                location: mapper(action.payload,'location')
             }
         case 'FETCH_ERROR_MESSAGE':
             return{

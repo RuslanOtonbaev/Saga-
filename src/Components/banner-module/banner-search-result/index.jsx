@@ -9,6 +9,8 @@ const SearchResult = ({location,neighborhood, sendValueToStore}) => {
         value && sendValueToStore(value);
     }
 
+    console.log(neighborhood);
+
     return(
         <div className={styles.search_result}>
             <ul className={styles.zip_result}>
