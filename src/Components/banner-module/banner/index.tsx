@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {getRandomImageFrom} from '../../../helpers/image-randomizer';
+import {getRandomNumberFrom} from '../../../helpers/image-randomizer';
 
 import Toggler from '../banner-toggler/index';
 import Search from '../banner-search/index';
@@ -15,7 +15,7 @@ interface styles{
 export default class Banner extends React.Component{
 
     private getRandomImage = ():number => {
-        const randomNumber:number = getRandomImageFrom(0,1);
+        const randomNumber:number = getRandomNumberFrom(0,1);
         return randomNumber;
     }
 
