@@ -2,6 +2,8 @@ import * as React from 'react';
 import {connect} from 'react-redux';
 import {toggleBannerPanel} from '../../../actions'
 import {StoreTypes} from '../../../types/types';
+import {classReturner,togglerSideStatus} from '../../../helpers/toggle-class-returner';
+import {BUY,RENT} from '../../../constants/Banner';
 
 import styles from './index.module.css';
 
@@ -18,15 +20,15 @@ type Props = StoreTypes & TogglerStatusProps & ToggleEventProps
 const BannerToggler = ({togglerStatus,toggleEvent}:Props) => {
 
     return(
-        <div className={togglerStatus === 'buy' ? styles.toggle_left_wrapper : styles.toggle_right_wrapper}>
+        <div className={togglerSideStatus(togglerStatus, styles)}>
             <button 
-            onClick={toggleEvent.bind('undefined', 'buy')} 
-            className={togglerStatus === 'buy' ? [styles.toggle_button,styles.active_button].join(' ') : styles.toggle_button}>
+            onClick={() => toggleEvent(BUY)} 
+            className={classReturner(togglerStatus, styles)}>
                 Buy
             </button>
             <button 
-            onClick={toggleEvent.bind('undefined', 'rent')}
-            className={togglerStatus === 'rent' ? [styles.toggle_button,styles.active_button].join(' ') : styles.toggle_button}>
+            onClick={() => toggleEvent(RENT)}
+            className={classReturner(togglerStatus, styles)}>
                 Rent
             </button>
         </div>
