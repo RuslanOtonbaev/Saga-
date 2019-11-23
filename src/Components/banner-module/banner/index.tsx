@@ -14,13 +14,8 @@ interface styles{
 
 export default class Banner extends React.Component{
 
-    private getRandomImage = ():number => {
-        const randomNumber:number = getRandomNumberFrom(0,1);
-        return randomNumber;
-    }
-
     private getRandomBackground = ():string => {
-        if(this.getRandomImage()){
+        if(getRandomNumberFrom(0,1)){
             return background1;
         }
 
