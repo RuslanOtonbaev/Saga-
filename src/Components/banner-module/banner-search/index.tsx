@@ -40,11 +40,7 @@ const BannerSearch = ({callToServer, loading, result, clearData, initialStatus}:
     }
 
     const searchChecker = (length:number) => {
-        if(length !== 0){
-            return <SearchResult/>
-        }
-
-        return <EmptySearch />;
+        return length !== 0 ? <SearchResult/> : <EmptySearch />
     }
 
     return (

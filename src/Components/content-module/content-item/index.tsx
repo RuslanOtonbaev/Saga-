@@ -1,7 +1,13 @@
 import * as React from 'react';
 import styles from './index.module.css';
 
-const ContentItem = ({image,title,description}) => {
+interface Props{
+    image: string;
+    title: string;
+    description: string;
+}
+
+const ContentItem = ({image,title,description}:Props) => {
     return(
         <div className={styles.content_item}>
             <img alt={'Content'} className={styles.content_item_image} src={image} />
