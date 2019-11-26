@@ -2,12 +2,13 @@ import * as React from 'react';
 import {connect, ConnectedProps} from 'react-redux'
 import {sendValueToStore} from '../../../actions';
 import {Styles} from '../../../types/types';
+import {SearchModal} from '../../../models/search';
 
 const styles:Styles = require('./index.module.css');
 
 interface RootState{
-    location: any;
-    neighborhood: any; //any until model not created
+    location: Array<SearchModal>;
+    neighborhood: Array<SearchModal>;
 }
 
 interface RootDispath{
@@ -31,7 +32,7 @@ const SearchResult = ({location,neighborhood, sendValueToStore}:Props) => {
                     <span className={styles.location_template}>Location</span>
                     {location.map((item:any, index:number) => (
                         <span 
-                            onClick={getValueUserSelected.bind('undefined', item.value)} 
+                            onClick={() => getValueUserSelected(item.value)} 
                             className={styles.neighborhood_result} 
                             key={index}>{item.value}
                         </span>
@@ -43,9 +44,11 @@ const SearchResult = ({location,neighborhood, sendValueToStore}:Props) => {
                     <div className={styles.neighborhood}>
                         <span className={styles.neighborhood_template}>Neighborhood</span>
                         {neighborhood.map((item:any, index:number) => (
-                            <span onClick={getValueUserSelected.bind('undefined', item.value)} 
-                                  className={styles.neighborhood_result}
-                                  key={index}>{item.value}</span>
+                            <span 
+                                onClick={() => getValueUserSelected(item.value)} 
+                                className={styles.neighborhood_result}
+                                key={index}>{item.value}
+                            </span>
                         ))
                         }
                     </div>
