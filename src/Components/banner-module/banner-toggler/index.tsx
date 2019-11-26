@@ -1,21 +1,25 @@
 import * as React from 'react';
-import {connect} from 'react-redux';
+import {connect,ConnectedProps} from 'react-redux';
 import {toggleBannerPanel} from '../../../actions'
-import {StoreTypes} from '../../../types/types';
 import {classReturner,togglerSideStatus} from '../../../helpers/toggle-class-returner';
 import {BUY,RENT} from '../../../constants/Banner';
 
 import styles from './index.module.css';
 
-interface TogglerStatusProps{
+interface RootState{
     togglerStatus: string
 }
 
-interface ToggleEventProps{
+interface ComponentProps{
+    bannerToggler:string
+}
+
+interface RootDispatch{
     toggleEvent: (status:string) => void;
 }
 
-type Props = StoreTypes & TogglerStatusProps & ToggleEventProps
+type PropsFromRedux = ConnectedProps<typeof connector>;
+type Props = PropsFromRedux & RootState & RootDispatch
 
 const BannerToggler = ({togglerStatus,toggleEvent}:Props) => {
 
@@ -36,12 +40,17 @@ const BannerToggler = ({togglerStatus,toggleEvent}:Props) => {
 
 }
 
-const mapStateToProps:any = ({bannerToggler}:StoreTypes):TogglerStatusProps => ({
+const mapStateToProps:({bannerToggler}:ComponentProps) => RootState = ({bannerToggler}:ComponentProps):RootState => ({
     togglerStatus: bannerToggler
 })
 
-const mapDispatchToProps:ToggleEventProps = ({
+const mapDispatchToProps:RootDispatch = ({
     toggleEvent: (status:string) => toggleBannerPanel(status)
 })
 
-export default connect<StoreTypes,ToggleEventProps,any>(mapStateToProps,mapDispatchToProps)(BannerToggler);
+const connector = connect(
+    mapStateToProps,
+    mapDispatchToProps
+);
+
+export default connector(BannerToggler);

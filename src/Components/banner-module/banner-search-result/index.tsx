@@ -1,23 +1,23 @@
 import * as React from 'react';
-import {connect} from 'react-redux'
+import {connect, ConnectedProps} from 'react-redux'
 import styles from './index.module.css';
 import {sendValueToStore} from '../../../actions';
-import {StoreTypes} from '../../../types/types';
 
-interface SearchStateTypes{
+interface RootState{
     location: any;
-    neighborhood: any; // any type is used for data from the backend until models are created
+    neighborhood: any; //any until model not created
 }
 
-interface SearchDispatchTypes{
+interface RootDispath{
     sendValueToStore: (value:string) => void;
 }
 
-type Props = StoreTypes & SearchStateTypes & SearchDispatchTypes;
+type PropsFromRedux = ConnectedProps<typeof connector>;
+type Props = PropsFromRedux & RootState & RootDispath;
 
 const SearchResult = ({location,neighborhood, sendValueToStore}:Props) => {
 
-    const getValueUserSelected = (value:string) => {
+    const getValueUserSelected = (value:string):void => {
         value && sendValueToStore(value);
     }
 
@@ -53,13 +53,18 @@ const SearchResult = ({location,neighborhood, sendValueToStore}:Props) => {
     )
 };
 
-const mapStateToProps:any = ({location,neighborhood}:StoreTypes) => ({
+const mapStateToProps:({location,neighborhood}:RootState) => RootState = ({location,neighborhood}:RootState) => ({
     location,
     neighborhood
 });
 
-const mapDispatchToProps:() => SearchDispatchTypes = () => ({
+const mapDispatchToProps:() => RootDispath = () => ({
     sendValueToStore
-})
+});
 
-export default connect<StoreTypes,SearchDispatchTypes,any>(mapStateToProps,mapDispatchToProps)(SearchResult);
+const connector = connect(
+    mapStateToProps,
+    mapDispatchToProps
+);
+
+export default connector(SearchResult);

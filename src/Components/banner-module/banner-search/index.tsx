@@ -1,32 +1,31 @@
 import * as React from 'react';
 import styles from './index.module.css';
-import {connect} from 'react-redux'
-import {StoreTypes} from '../../../types/types';
+import {connect,ConnectedProps} from 'react-redux'
 import {searchResultRequest,clearDataFromServer} from "../../../actions";
 
 import SearchResult from '../banner-search-result';
 import EmptySearch from '../../empty-search';
 import Loader from '../../loader';
 
-interface SearchStateTypes{
+interface RootState{
     loading: boolean;
     result: any;
 }
 
-interface SearchDispathTypes{
-    callToServer: (value:string) => void;
+interface RootDispatch{
     clearData: () => void;
+    callToServer: (value: string) => void;
 }
 
-type EmptyFieldHook = { initialStatus: boolean };
-type Props = StoreTypes & SearchStateTypes & SearchDispathTypes & EmptyFieldHook;
+type PropsFromRedux = ConnectedProps<typeof connector>;
+type Props = PropsFromRedux & RootDispatch;
 
-const BannerSearch = ({callToServer, loading, result, clearData, initialStatus}:Props) => {
+const BannerSearch:React.FC<Props> = ({callToServer, loading, result, clearData}:Props) => {
 
     const input = React.createRef<HTMLInputElement>();
-    const [emptyField, setEmptyField] = React.useState(initialStatus);
+    const [emptyField, setEmptyField] = React.useState<boolean>(false);
 
-    const searchSubmit = () => {
+    const searchSubmit = ():void => {
 
         if(input.current && input.current.value){
             callToServer(input.current.value);
@@ -39,7 +38,7 @@ const BannerSearch = ({callToServer, loading, result, clearData, initialStatus}:
         setEmptyField(true);
     }
 
-    const searchChecker = (length:number) => {
+    const searchChecker = (length:number):JSX.Element => {
         return length !== 0 ? <SearchResult/> : <EmptySearch />
     }
 
@@ -69,15 +68,20 @@ const BannerSearch = ({callToServer, loading, result, clearData, initialStatus}:
 
 };
 
-const mapStateToProps:any = ({loading,result}:StoreTypes) => ({
+const mapStateToProps: ({loading,result}:RootState) => RootState = ({loading,result}:RootState) => ({
     loading,
     result
 });
 
-const mapDispatchToProps:SearchDispathTypes = ({
+const mapDispatchToProps:RootDispatch = ({
     callToServer: searchResultRequest,
     clearData: clearDataFromServer
 });
 
+const connector = connect(
+    mapStateToProps,
+    mapDispatchToProps
+);
 
-export default connect<StoreTypes,SearchDispathTypes,any>(mapStateToProps, mapDispatchToProps)(BannerSearch)
+
+export default connector(BannerSearch);

@@ -8,7 +8,3 @@ export interface StoreTypes {
     error: any,
     userSelected: string,
 }
-
-export interface DispatchTypes{
-    toggleBannerPanel: (status:string) => void;
-}

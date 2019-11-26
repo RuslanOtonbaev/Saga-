@@ -15,11 +15,7 @@ interface styles{
 export default class Banner extends React.Component{
 
     private getRandomBackground = ():string => {
-        if(getRandomNumberFrom(0,1)){
-            return background1;
-        }
-
-        return background2;
+        return getRandomNumberFrom(0,1) ? background1 : background2;
     }
 
     render(){

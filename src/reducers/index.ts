@@ -26,7 +26,7 @@ const initialStore:StoreTypes = {
 const fetchToServer = (
     state:StoreTypes = initialStore,
     action: AllActionTypes
-    ) => {
+    ):StoreTypes => {
     switch(action.type){
         case FETCH_SEARCH_REQUEST:
             return{
