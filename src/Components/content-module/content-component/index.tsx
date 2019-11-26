@@ -1,17 +1,19 @@
 import * as React from 'react';
-import styles from './index.module.css';
-import {connect} from 'react-redux';
-import {StoreTypes} from '../../../types/types';
+import {connect, ConnectedProps} from 'react-redux';
+import {StoreTypes,Styles} from '../../../types/types';
 import {AGENTS} from '../../../constants/Toggler';
 
 import ContentAgents from '../content-agents';
 import ContentRenters from '../content-renters';
 
-interface OwnStateTypes{
-    togglerResult: string;
+const styles:Styles = require('./index.module.css');
+
+interface RootState{
+    togglerResult: string
 }
 
-type Props = StoreTypes & OwnStateTypes;
+type PropsFromRedux = ConnectedProps<typeof connector>;
+type Props = PropsFromRedux & RootState;
 
 const Content = ({togglerResult}:Props) => {
     return (
@@ -26,8 +28,10 @@ const Content = ({togglerResult}:Props) => {
     )
 };
 
-const mapStateToProps:any = ({contentToggler}:StoreTypes) => ({
+const mapStateToProps:({contentToggler}:StoreTypes) => RootState = ({contentToggler}:StoreTypes):RootState => ({
     togglerResult: contentToggler
 })
 
-export default connect<StoreTypes,any,any>(mapStateToProps, null)(Content);
+const connector = connect(mapStateToProps,null);
+
+export default connector(Content);

@@ -1,6 +1,7 @@
 import * as React from 'react';
+import {Styles} from '../../types/types';
 
-const styles = require('./index.module.css');
+const styles:Styles = require('./index.module.css');
 
 const Loader = () => (
     <div className={styles.lds_ring}>

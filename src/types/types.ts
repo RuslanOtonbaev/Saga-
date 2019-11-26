@@ -8,3 +8,7 @@ export interface StoreTypes {
     error: any,
     userSelected: string,
 }
+
+export interface Styles {
+    [key:string]:string
+}

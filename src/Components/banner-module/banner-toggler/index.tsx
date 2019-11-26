@@ -1,17 +1,14 @@
 import * as React from 'react';
 import {connect,ConnectedProps} from 'react-redux';
 import {toggleBannerPanel} from '../../../actions'
+import {StoreTypes,Styles} from '../../../types/types';
 import {classReturner,togglerSideStatus} from '../../../helpers/toggle-class-returner';
 import {BUY,RENT} from '../../../constants/Banner';
 
-import styles from './index.module.css';
+const styles:Styles = require('./index.module.css');
 
 interface RootState{
     togglerStatus: string
-}
-
-interface ComponentProps{
-    bannerToggler:string
 }
 
 interface RootDispatch{
@@ -40,7 +37,7 @@ const BannerToggler = ({togglerStatus,toggleEvent}:Props) => {
 
 }
 
-const mapStateToProps:({bannerToggler}:ComponentProps) => RootState = ({bannerToggler}:ComponentProps):RootState => ({
+const mapStateToProps:({bannerToggler}:StoreTypes) => RootState = ({bannerToggler}:StoreTypes):RootState => ({
     togglerStatus: bannerToggler
 })
 

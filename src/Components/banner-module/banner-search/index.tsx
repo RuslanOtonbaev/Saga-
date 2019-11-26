@@ -1,15 +1,18 @@
 import * as React from 'react';
-import styles from './index.module.css';
 import {connect,ConnectedProps} from 'react-redux'
 import {searchResultRequest,clearDataFromServer} from "../../../actions";
+import {Styles} from '../../../types/types';
+import {SearchModal} from '../../../models/search';
 
 import SearchResult from '../banner-search-result';
 import EmptySearch from '../../empty-search';
 import Loader from '../../loader';
 
+const styles:Styles = require('./index.module.css');
+
 interface RootState{
     loading: boolean;
-    result: any;
+    result: [] | SearchModal;
 }
 
 interface RootDispatch{

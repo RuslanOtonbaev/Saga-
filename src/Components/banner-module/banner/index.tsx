@@ -1,16 +1,13 @@
 import * as React from 'react';
 import {getRandomNumberFrom} from '../../../helpers/image-randomizer';
+import {Styles} from '../../../types/types';
 
 import Toggler from '../banner-toggler/index';
 import Search from '../banner-search/index';
 
-const styles:styles = require('./index.module.css');
+const styles:Styles = require('./index.module.css');
 const background1:string = require('../../../images/banner_background.jpg');
 const background2:string = require('../../../images/banner_background2.jpg');
-
-interface styles{
-    [key:string]:string
-}
 
 export default class Banner extends React.Component{
 

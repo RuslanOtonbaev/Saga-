@@ -1,19 +1,24 @@
 import * as React from 'react';
 import styles from './index.module.css';
-import {connect} from 'react-redux';
+import {connect, ConnectedProps} from 'react-redux';
 import {toggleContentPanel} from '../../../actions';
 import {StoreTypes} from '../../../types/types';
 import {RENTERS,AGENTS} from '../../../constants/Toggler';
 
-interface DispatchPropsType{
-    toggleContentPanel: (buttonValue:string) => void;
+interface RootState{
+    contentToggler: string
 }
 
-type Props = StoreTypes & DispatchPropsType;
+interface RootDispatch{
+    toggleContentPanel: (value: string) => void;
+}
+
+type PropsFromRedux = ConnectedProps<typeof connector>;
+type Props = PropsFromRedux & RootState & RootDispatch;
 
 const SectionToggler = ({toggleContentPanel,contentToggler}:Props) => {
 
-    const detectActiveClass = (buttonValue:string) => {
+    const detectActiveClass = (buttonValue:string):string => {
         return contentToggler === buttonValue ? [styles.toggle_button,styles.toggle_button_active].join(' ')  : styles.toggle_button;
     }
 
@@ -28,12 +33,17 @@ const SectionToggler = ({toggleContentPanel,contentToggler}:Props) => {
     
 };
 
-const mapStateToProps:any = ({contentToggler}:StoreTypes) => ({
+const mapStateToProps:({contentToggler}:StoreTypes) => RootState = ({contentToggler}:StoreTypes):RootState => ({
     contentToggler
 });
 
-const mapDispatchToProps:DispatchPropsType = ({
+const mapDispatchToProps:RootDispatch = ({
     toggleContentPanel
 })
 
-export default connect<StoreTypes,DispatchPropsType,any>(mapStateToProps,mapDispatchToProps)(SectionToggler);
+const connector = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)
+
+export default connector(SectionToggler);

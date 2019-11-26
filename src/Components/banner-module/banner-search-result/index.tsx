@@ -1,7 +1,9 @@
 import * as React from 'react';
 import {connect, ConnectedProps} from 'react-redux'
-import styles from './index.module.css';
 import {sendValueToStore} from '../../../actions';
+import {Styles} from '../../../types/types';
+
+const styles:Styles = require('./index.module.css');
 
 interface RootState{
     location: any;

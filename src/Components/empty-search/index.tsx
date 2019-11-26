@@ -1,10 +1,7 @@
 import * as React from 'react';
-import styles from './index.module.css';
+import {Styles} from '../../types/types';
 
-const emptySearch = () => {
-    return(
-        <div className={styles.empty_search} />
-    )
-}
+const styles:Styles = require('./index.module.css');
 
+const emptySearch = () => (<div className={styles.empty_search} />)
 export default emptySearch;
