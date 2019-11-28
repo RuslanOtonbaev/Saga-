@@ -9,23 +9,20 @@ import {FETCH_SEARCH_REQUEST,
     USER_SEARCH_VALUE,
 } from '../constants/Actions';
 
+import {SearchModal} from '../models/search';
+
 export interface ActionTypeWithStringPayload{
     type: typeof FETCH_SEARCH_REQUEST | typeof TOGGLE_BANNER_PANEL | typeof TOGGLE_CONTENT_PANEL | typeof USER_SEARCH_VALUE
     payload: string;
 }
 
-export interface ActionTypeWithSearchModal{
-    type: typeof FETCH_SEARCH_RECEIVED
-    payload: any;
-}
-
 export interface ActionTypeWithArray{
-    type: typeof FETCH_ERROR_MESSAGE
-    payload: Array<any>
+    type: typeof FETCH_ERROR_MESSAGE | typeof FETCH_SEARCH_RECEIVED
+    payload: Array<SearchModal>
 }
 
 export interface ActionTypeWithOutPayload{
     type: typeof CLEAR_DATA_SERVER | typeof FETCH_NEIGHBORHOOD_ITEMS | typeof FETCH_LOCATION_ITEMS
 }
 
-export type AllActionTypes = ActionTypeWithStringPayload | ActionTypeWithOutPayload | ActionTypeWithSearchModal | ActionTypeWithArray;
+export type AllActionTypes = ActionTypeWithStringPayload | ActionTypeWithOutPayload | ActionTypeWithArray;
